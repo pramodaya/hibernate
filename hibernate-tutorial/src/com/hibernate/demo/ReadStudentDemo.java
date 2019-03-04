@@ -42,7 +42,7 @@ public class ReadStudentDemo {
 			System.out.println("Saved Student.GeneratedID : "+ tmpStudent.getId());
 								
 			//1. now get a new Session and start transaction
-			session = factory.getCurrentSession();
+			    
 			session.beginTransaction();
 			
 			//2. retrieve student based on the id: primary key
