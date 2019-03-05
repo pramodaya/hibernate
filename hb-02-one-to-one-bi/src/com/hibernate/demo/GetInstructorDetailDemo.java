@@ -30,7 +30,7 @@ public class GetInstructorDetailDemo {
 			//---------------------------------------NEW CODE-------------
 			
 			//get the instructor detail object
-			int theId = 2;		
+			int theId = 200;		
 			InstructorDetail tempInstructorDetail = session.get(InstructorDetail.class, theId);
 			
 			//print the instructor detail 			
@@ -50,8 +50,17 @@ public class GetInstructorDetailDemo {
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done");
-
-		} finally {
+		
+		} 
+		catch(Exception exc) {
+			
+			exc.printStackTrace();
+			
+		}
+		finally {
+			//handle connection leak issues
+			session.close();
+			
 			// close the factory
 			factory.close();
 		}
